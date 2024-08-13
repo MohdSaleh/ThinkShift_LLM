@@ -1,0 +1,31 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tshift-llm"
+version = "0.2.2"
+description = "A flexible LLM manager that shifts between multiple models"
+readme = "README.md"
+authors = [{ name = "Ryan Saleh", email = "hello@ryansaleh.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["llm", "ai", "nlp", "language model"]
+dependencies = [
+    "litellm >= 1.0.0",
+    "requests >= 2.25.1",
+    "llama-index-llms-litellm >= 0.1.4",
+    "llama-index >= 0.10.65",
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/MohdSaleh/tshift-llm"

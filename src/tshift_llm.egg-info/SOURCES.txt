@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/tshift_llm/__init__.py
+src/tshift_llm/tshift_llm.py
+src/tshift_llm.egg-info/PKG-INFO
+src/tshift_llm.egg-info/SOURCES.txt
+src/tshift_llm.egg-info/dependency_links.txt
+src/tshift_llm.egg-info/requires.txt
+src/tshift_llm.egg-info/top_level.txt
+tests/test_tshift_llm.py

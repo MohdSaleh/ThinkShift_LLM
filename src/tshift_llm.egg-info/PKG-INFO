@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: tshift-llm
+Version: 0.2.2
+Summary: A flexible LLM manager that shifts between multiple models
+Author-email: Ryan Saleh <hello@ryansaleh.com>
+License: # LICENSE
+        MIT License
+        
+        Copyright (c) [year] [fullname]
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/MohdSaleh/tshift-llm
+Keywords: llm,ai,nlp,language model
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: litellm>=1.0.0
+Requires-Dist: requests>=2.25.1
+Requires-Dist: llama-index-llms-litellm>=0.1.4
+Requires-Dist: llama-index>=0.10.65
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+
+# ThinkShift_LLM
+ThinkShift_LLM is a flexible LLM manager that shifts between multiple language models to ensure robust and uninterrupted AI-powered conversations.
+
+## Features
+
+- Manages multiple LiteLLM clients
+- Shifts between models when errors occur
+- Supports both streaming and non-streaming completions
+- Detailed logging of all interactions
+- Round-robin client selection
+
+## Installation
+
+You can install tShift_LLM using pip:
+
+```
+pip install tshift-llm
+```
+
+## Usage
+
+Here's a quick example of how to use tShift_LLM:
+
+```python
+from tshift_llm import tShift_LLM, LiteLLMClient
+
+clients = [
+    LiteLLMClient("gpt-3.5-turbo", "your-openai-key"),
+    LiteLLMClient("claude-2", "your-anthropic-key"),
+    LiteLLMClient("command-nightly", "your-cohere-key")
+]
+
+tshift_llm = tShift_LLM(clients)
+
+response = tshift_llm.completion(
+    messages=[{"role": "user", "content": "Hello, how are you?"}]
+)
+print(response.choices[0].message.content)
+```
+
+For more detailed usage instructions, please refer to the documentation.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

@@ -1,0 +1,7 @@
+litellm>=1.0.0
+requests>=2.25.1
+llama-index-llms-litellm>=0.1.4
+llama-index>=0.10.65
+
+[dev]
+pytest
